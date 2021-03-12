@@ -11,7 +11,10 @@ class Pet(models.Model):
      blank=True)
     submission_date = models.DateTimeField()
     age = models.IntegerField(null = True)
-    vaccination = models.ManyToManyField('Vaccine')
+    vaccinations = models.ManyToManyField('Vaccine')
 
 class Vaccine(models.Model):
     name = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.name
